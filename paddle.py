@@ -3,7 +3,7 @@ from settings import *
 
 class Paddle:
 
-    def __init__(self, x, y, color, screen):
+    def __init__(self, x, y, color, screen, up_key, down_key):
        self.x = x
        self.y = y
        self.color = color
@@ -11,12 +11,14 @@ class Paddle:
        self.height = P_HEIGHT
        self.speedy = P_SPEEDY
        self.screen = screen
+       self.up_key = up_key
+       self.down_key = down_key
 
     def update(self):
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_UP]:
+        if keys[self.up_key]:
            self.y -= self.speedy
-        elif keys[pygame.K_DOWN]:
+        elif keys[self.down_key]:
             self.y += self.speedy
 
         if self.y <= 0:
