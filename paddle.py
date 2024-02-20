@@ -30,6 +30,10 @@ class Paddle:
         pygame.draw.rect(self.screen, WHITE, (self.x, self.y, self.width, self.height))
 
 
+    def get_x(self):
+        return self.x
 
+    def get_y(self):
+        return self.y
     
             

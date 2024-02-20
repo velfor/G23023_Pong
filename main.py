@@ -27,6 +27,14 @@ while True:
     ball.update()
     left_paddle.update()
     right_paddle.update()
+
+    #пересечение объектов, collisions
+    #левая ракетка
+    #нижняя точка мяча, верхний край ракетки
+    if ball.get_mid_bottom_x() >= left_paddle.get_x():
+        if ball.get_mid_bottom_x() <= left_paddle.get_x() + P_WIDTH:
+            if ball.get_mid_bottom_y() >= left_paddle.get_y():
+                ball.reverse_speedy()
     
     # обновление экрана
     screen.fill(BLACK)
