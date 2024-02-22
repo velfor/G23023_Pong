@@ -27,7 +27,7 @@ class Paddle:
             self.y = SC_HEIGHT - P_HEIGHT
 
     def draw(self):
-        pygame.draw.rect(self.screen, WHITE, (self.x, self.y, self.width, self.height))
+        pygame.draw.rect(self.screen, self.color, (self.x, self.y, self.width, self.height))
 
 
     def get_x(self):

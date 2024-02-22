@@ -12,6 +12,8 @@ class Ball:
         self.speedy = 3
         self.screen = screen
         self.calc_mids()
+        self.left_score = 0
+        self.right_score = 0
 
     def calc_mids(self):
         self.mid_top_x = self.x
@@ -34,9 +36,11 @@ class Ball:
         #правая
         if self.x + self.r >= SC_WIDTH:
             self.speedx = -self.speedx
+            self.left_score += 1
         #левая
         if self.x - self.r <= 0:
             self.speedx = -self.speedx
+            self.right_score += 1
         #верхняя
         if self.y - self.r <= 0:
             self.speedy = -self.speedy    
@@ -45,7 +49,7 @@ class Ball:
             self.speedy = -self.speedy
 
     def draw(self):
-        pygame.draw.circle(self.screen, WHITE, (self.x, self.y), self.r)
+        pygame.draw.circle(self.screen, self.color, (self.x, self.y), self.r)
 
 
     def get_mid_top_x(self):
@@ -77,6 +81,16 @@ class Ball:
 
     def reverse_speedy(self):
         self.speedy = -self.speedy
+
+    def get_left_score(self):
+        return self.left_score
+
+    def get_right_score(self):
+        return self.right_score
+
+
+
+    
 
 
 
